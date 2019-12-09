@@ -1,44 +1,35 @@
 #include <stdio.h>
 
 int main() {
-    char nome [] = "" ;
-    char estadoCivil [] ="" ; 
-    char solteiro [] = "S";
-    char casado [] = "C"; 
-    char uniao [] = "U"; 
-    char divorciado [] = "D"; 
-    int taxa;
+    char nome [256];
+    char estadoCivil [256]; 
+    float taxa;
     printf("Introduza seu nome  ");
     scanf("%s", &nome);
     printf("Porfavor introduza o seu estado \n");
-    scanf("%s", &estadoCivil);
+    scanf("%s", estadoCivil);
     
 
-    if (estadoCivil == 'solteiro')
+    if (estadoCivil[0] == 's' || estadoCivil[0] == 'S')
     {
-        printf("Sua taxa e de 25%%");
+        taxa=0.25;    
     }
-    else if (estadoCivil == "casado")
+    else if (estadoCivil[0] == 'c' || estadoCivil[0]== 'C')
     {
-        printf("Sua taxa e de 19%%");
+        taxa = 0.19;
     }
-    else if (estadoCivil == "uniao")
+    else if (estadoCivil[0] == 'u' || estadoCivil[0]=='U')
     {
-        printf("Sua taxa e de 22%%");
+        taxa = 0.22;
     }
-    else if (estadoCivil == "divorciado")
+    else if (estadoCivil[0] == 'd' || estadoCivil[0]=='D')
     {
-        printf("Sua taxa e de 18%%");
+        taxa =0.18;
     }
    else
     {
-        printf("Sua taxa e de 9%%");
-    }
+    taxa=0.09;
+   }
     
-    
-    
-    return 0;
-    
-    
-    
+    printf("%s a sua taxa e de : %0.0f%%",nome,taxa*100);    
 }
